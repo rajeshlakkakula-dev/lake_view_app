@@ -117,15 +117,16 @@ class FavWidget extends StatefulWidget {
 }
 
 class _FavWidgetState extends State<FavWidget> {
-  bool _isFav = true;
-  int _favCount = 41;
+  // Step 1 - Created Default variables
+  bool _isFav = true; // Selected = True , UnSelected = False
+  int _favCount = 41; // value = 41
 
   void _toggleFav() {
     setState(() {
       if (_isFav) {
-        // True
-        _favCount -= 1; // 40
-        _isFav = false; // false
+        // Selected = True
+        _favCount -= 1; // 40 = value
+        _isFav = false; // Icon as unSelected = false
       } else {
         _favCount += 1;
         _isFav = true;
@@ -142,16 +143,16 @@ class _FavWidgetState extends State<FavWidget> {
           child: IconButton(
             alignment: Alignment.centerRight,
             onPressed: _toggleFav,
-            icon: (_isFav
+            icon: (_isFav // false
                 ? const Icon(Icons.star)
-                : const Icon(Icons.star_border)),
+                : const Icon(Icons.star_border)), // condition ? true : false
             color: Colors.red,
           ),
         ),
         SizedBox(
           width: 18,
           child: SizedBox(
-            child: Text('$_favCount'),
+            child: Text('$_favCount'), // value = 40
           ),
         )
       ],
